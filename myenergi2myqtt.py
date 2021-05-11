@@ -53,7 +53,7 @@ class MyEnergiDaemon:
 
             self.mqtt_client.loop_stop()
 
-            time.sleep(10)
+            time.sleep(self.config["myenergi"]["interval"])
         print("Shutdown")
 
             
