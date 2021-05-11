@@ -8,7 +8,9 @@ Donwload the zip archive
 
 Install dependencies:
 
-pip3 install paho-mqtt requests 
+```
+pip3 install paho-mqtt requests lockfile python-daemon PyYAML
+```
 
 In the folder:
 Make the main python executable: 
