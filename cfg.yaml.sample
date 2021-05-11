@@ -1,0 +1,6 @@
+myenergi:
+  serial: "myserial"
+  passwd: "mypasswd"
+mqtt: 
+  host: mqtt.host.ip.addr
+  port: 1883
