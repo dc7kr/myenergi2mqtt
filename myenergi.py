@@ -36,12 +36,13 @@ class MyenergiHub():
         self.asn =""
         self.fw_version = ""
     
-        self.myenergi_base_url = 'https://director.myenergi.net'
+        self.myenergi_base_url = self.config["myenergi"]["director_url"]
 
 
     def checkMyEnergiServerURL(self, responseHeader):
         if 'X_MYENERGI-asn' in responseHeader:
             self.myenergi_base_url = 'https://' + responseHeader['X_MYENERGI-asn']
+            print(self.myenergi_base_url)
         else:
             print('ERROR: MyEnergi ASN not found in Myenergi header')
 

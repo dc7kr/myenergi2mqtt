@@ -2,6 +2,7 @@ myenergi:
   serial: "myserial"
   passwd: "mypasswd"
   interval: 10
+  director_url: "https://s1.myenergi.net"
 mqtt: 
   host: mqtt.host.ip.addr
   port: 1883
