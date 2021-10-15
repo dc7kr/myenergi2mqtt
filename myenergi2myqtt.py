@@ -13,6 +13,7 @@ import time
 import os.path
 import sys
 from pprint import pprint
+import socket
 
 import myenergi
 
@@ -28,8 +29,14 @@ class MyEnergiDaemon:
             except yaml.YAMLError as exc:
                 print(exc)
         self.hub = myenergi.MyenergiHub(self.config)
-        self.mqtt_client.connect(self.config["mqtt"]["host"],self.config["mqtt"]["port"], 60)
-
+        try:
+            self.mqtt_client.connect(self.config["mqtt"]["host"],self.config["mqtt"]["port"], 60)
+        except ConnectionRefusedError:
+            print("Could not connect to MQTT.")
+            sys.exit(1)
+        except socket.gaierror:
+            print("Unable to resolve MQTT host.")
+            sys.exit(1)
     def mqtt_on_connect(self):
         print("Connected with result code "+str(rc))
 
